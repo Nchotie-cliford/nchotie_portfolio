@@ -1,4 +1,4 @@
-# 🎯 Deutsche Bank Portfolio - Cliford Ndonwie Nchotie
+# 🎯  - Cliford Ndonwie Nchotie
 
 A world-class developer portfolio built with Next.js 15, TypeScript, and Tailwind CSS. Designed to showcase full-stack development skills and AI/ML expertise to land an apprenticeship at Deutsche Bank.
 
@@ -275,24 +275,6 @@ vercel
 
 ---
 
-## 🎓 Design Decisions
-
-### **Why Two Alternatives for Complex Questions?**
-
-Example: "Should I use video previews or static images?"
-
-**Option A: Video Hover**
-- ✅ Pros: Engaging, shows product in action
-- ❌ Cons: Larger file sizes, needs video creation
-
-**Option B: Static Images**
-- ✅ Pros: Faster load times, easier to manage
-- ❌ Cons: Less engaging
-
-**Recommendation**: Use videos for 1-2 flagship projects, static for others.
-
----
-
 ## 📞 Contact
 
 **Cliford Ndonwie Nchotie**
@@ -309,12 +291,7 @@ This portfolio is open-source under the MIT License. Feel free to fork and custo
 
 ---
 
-## 🙏 Acknowledgments
-
-- **Inspiration**: my-portfolio-ba1h.vercel.app
-- **Color Palette**: Deutsche Bank branding research
-- **Animations**: Framer Motion community examples
 
 ---
 
-**Built with 💙 in Bayreuth • Targeting Deutsche Bank Apprenticeship 2026**
+**Built with 💙 in Bayreuth •
