@@ -28,7 +28,6 @@ export const projects = [
     solution: "Created a full-stack travel planner that aggregates prices, scores optimal travel windows, generates AI-powered itineraries with recommendations and price alerts. Includes asynchronous video rendering pipeline using FFmpeg to create vertical recap videos from trip media.",
     techStack: ["Next.js", "TypeScript", "Spring Boot", "Java", "PostgreSQL", "Redis", "RabbitMQ", "S3", "FFmpeg", "Docker"],
     impact: "Price aggregation & scoring • AI itinerary generation • Vertical video recap studio • Async rendering pipeline",
-    videoUrl: "/videos/urlaubpilot-demo.mp4",
     imageUrl: "/images/urlaubpilot-thumbnail.jpg",
     githubUrl: "https://github.com/Nchotie-cliford/urlaubpilot",
     liveUrl: "https://nchotie.xyz",

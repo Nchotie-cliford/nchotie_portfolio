@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 interface ContributionDay {
   date: string;
@@ -12,25 +13,23 @@ interface ContributionDay {
 const generateContributionData = (): ContributionDay[] => {
   const data: ContributionDay[] = [];
   const today = new Date();
-  
+
   for (let i = 364; i >= 0; i--) {
     const date = new Date(today);
     date.setDate(date.getDate() - i);
-    
+
     const count = Math.floor(Math.random() * 12);
     const level = count === 0 ? 0 : count < 3 ? 1 : count < 6 ? 2 : count < 9 ? 3 : 4;
-    
+
     data.push({
       date: date.toISOString().split('T')[0],
       count,
       level: level as 0 | 1 | 2 | 3 | 4,
     });
   }
-  
+
   return data;
 };
-
-const contributions = generateContributionData();
 
 const getLevelColor = (level: number) => {
   const colors = {
@@ -44,9 +43,22 @@ const getLevelColor = (level: number) => {
 };
 
 export default function GitHubActivity() {
+  const [contributions, setContributions] = useState<ContributionDay[]>([]);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    setContributions(generateContributionData());
+  }, []);
+
   const totalContributions = contributions.reduce((sum, day) => sum + day.count, 0);
   const currentStreak = 45; // Calculate based on consecutive days
   const longestStreak = 87;
+
+  // Prevent hydration mismatch
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <section className="py-24 relative overflow-hidden bg-background-secondary/50">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import PreloaderWrapper from "@/components/ui/PreloaderWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -63,7 +64,9 @@ export default function RootLayout({
       <head>
         <link rel="canonical" href="https://nchotie.xyz" />
       </head>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <PreloaderWrapper>{children}</PreloaderWrapper>
+      </body>
     </html>
   );
 }
