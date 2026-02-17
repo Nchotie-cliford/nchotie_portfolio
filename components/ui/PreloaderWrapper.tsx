@@ -16,16 +16,13 @@ export default function PreloaderWrapper({ children }: { children: React.ReactNo
 
     if (hasSeenPreloader) {
       setShowPreloader(false);
-    } else {
-      // Hide preloader after animation completes
-      const timer = setTimeout(() => {
-        setShowPreloader(false);
-        sessionStorage.setItem('hasSeenPreloader', 'true');
-      }, 18500); // Stage 4 at 17.5s + 1s exit animation = 18.5s
-
-      return () => clearTimeout(timer);
     }
   }, []);
+
+  const handlePreloaderComplete = () => {
+    setShowPreloader(false);
+    sessionStorage.setItem('hasSeenPreloader', 'true');
+  };
 
   // Prevent hydration mismatch by not rendering anything until client-side
   if (!isClient) {
@@ -34,7 +31,7 @@ export default function PreloaderWrapper({ children }: { children: React.ReactNo
 
   return (
     <>
-      {showPreloader && <Preloader />}
+      {showPreloader && <Preloader onComplete={handlePreloaderComplete} />}
       {children}
     </>
   );

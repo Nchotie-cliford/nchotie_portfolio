@@ -9,7 +9,11 @@ interface TickerItem {
   change: number;
 }
 
-export default function Preloader() {
+interface PreloaderProps {
+  onComplete?: () => void;
+}
+
+export default function Preloader({ onComplete }: PreloaderProps) {
   const [stage, setStage] = useState(0); // 0: loading, 1: data-stream, 2: system-init, 3: welcome
   const [progress, setProgress] = useState(0);
   const [loadingText, setLoadingText] = useState('');
@@ -316,7 +320,13 @@ export default function Preloader() {
                 transition={{ duration: 0.5 }}
                 className="text-center space-y-8"
                 onAnimationComplete={() => {
-                  setTimeout(() => setStage(4), 1500);
+                  setTimeout(() => {
+                    setStage(4);
+                    // Call onComplete after exit animation (1s)
+                    setTimeout(() => {
+                      onComplete?.();
+                    }, 1000);
+                  }, 1500);
                 }}
               >
                 <motion.div
