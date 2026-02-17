@@ -14,15 +14,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cliford Ndonwie Nchotie - Full-Stack Developer & AI Specialist",
-  description: "Full-Stack Developer specializing in AI-powered backends, RAG pipelines, and scalable infrastructure. Building intelligent enterprise systems with Java, TypeScript, and Python.",
+  title: "Cliford Ndonwie Nchotie - Aspiring Full-Stack Developer",
+  description: "Aspiring Full-Stack Developer passionate about AI-powered backends, RAG pipelines, and scalable infrastructure. Learning and building intelligent systems with Java, TypeScript, and Python.",
   keywords: [
     "Full-Stack Developer",
-    "AI/ML Engineer",
+    "AI/ML",
     "FastAPI",
     "Spring Boot",
     "RAG",
-    "Deutsche Bank",
     "Bayreuth",
     "Java",
     "TypeScript",
@@ -39,14 +38,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: "https://nchotie.xyz",
-    title: "Cliford Ndonwie Nchotie - Full-Stack Developer & AI Specialist",
-    description: "Building intelligent enterprise systems with AI/ML, Java, and TypeScript",
+    title: "Cliford Ndonwie Nchotie - Aspiring Full-Stack Developer",
+    description: "Learning and building intelligent systems with AI/ML, Java, and TypeScript",
     siteName: "Cliford Ndonwie Nchotie Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Cliford Ndonwie Nchotie - Full-Stack Developer",
-    description: "AI/ML Specialist • Backend Engineer • Bayreuth, Germany",
+    description: "Learning AI/ML • Backend Development • Bayreuth, Germany",
   },
   robots: {
     index: true,

@@ -1,5 +1,16 @@
 export const projects = [
   {
+    title: "Betta Health Oncology",
+    subtitle: "International Medical & AI-Assisted Telemedicine Platform",
+    problem: "Global oncology teams have no secure, compliant platform to manage international telemedicine cases. Manual case intake, scattered document handling, and unstructured patient data slow down critical workflows and create compliance risks.",
+    solution: "Designed and shipped a full end-to-end oncology telemedicine platform: Case Intake → Stripe Payment Gating → Specialist Assignment → Interdisciplinary Tumor Board → Branded PDF Reporting. LLM-based extraction of structured oncology data (TNM staging, histology), automated document classification, granular RBAC (Patient/Doctor/CMO/Admin), patient consent gates, audit logs, and a procurement engine for oncology medications.",
+    techStack: ["Next.js", "TypeScript", "Supabase", "Stripe", "OpenAI API", "GitHub Actions", "Vercel"],
+    impact: "Live client project at bettahealth.consulting • AI-assisted oncology intake & document classification • Secure RBAC & audit logging for medical compliance • End-to-end case management with procurement workflow",
+    imageUrl: "/images/bettahealth-thumbnail.jpg",
+    liveUrl: "https://bettahealth.consulting/",
+    category: "AI/ML" as const,
+  },
+  {
     title: "EasyHR - AI Recruiting Platform",
     subtitle: "End-to-End Recruiting & Onboarding Automation",
     problem: "Traditional recruiting processes require manual CV screening, skill extraction, and candidate communication, leading to 40+ hours/week wasted by HR teams and qualified candidates being overlooked.",

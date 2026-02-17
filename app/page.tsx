@@ -64,8 +64,8 @@ export default function Home() {
               </span>
             </h2>
             <p className="text-xl text-foreground-muted">
-              I'm actively seeking an apprenticeship as an IT Engineer at Deutsche Bank.
-              Let's discuss how I can contribute to your team.
+              I'm actively seeking an IT Engineer apprenticeship to grow and contribute.
+              Let's discuss how I can add value to your team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

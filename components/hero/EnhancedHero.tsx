@@ -58,13 +58,6 @@ export default function EnhancedHero() {
             </span>
             <span className="text-foreground-muted">•</span>
             <span className="text-foreground-muted">Bayreuth, Deutschland</span>
-            <span className="text-foreground-muted">•</span>
-            <span className="flex items-center gap-1 text-primary">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-              Deutsche Bank
-            </span>
           </motion.div>
 
           {/* Stage 2: Headline (0.5-1s) - Word by word */}
@@ -110,12 +103,12 @@ export default function EnhancedHero() {
             transition={{ duration: 0.5, delay: 1.7 }}
             className="text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto leading-relaxed"
           >
-            Full-Stack Developer specializing in{" "}
+            Aspiring Full-Stack Developer passionate about{" "}
             <span className="text-primary-light font-semibold">AI-powered backends</span>,{" "}
             <span className="text-accent-gold font-semibold">RAG pipelines</span>, and{" "}
             <span className="text-primary-light font-semibold">scalable infrastructure</span>.
             <br />
-            Building intelligent systems that bridge AI and enterprise architecture.
+            Learning and building through real-world projects that bridge AI and enterprise architecture.
           </motion.p>
 
           {/* Stage 5: CTA Buttons (2-2.5s) */}
