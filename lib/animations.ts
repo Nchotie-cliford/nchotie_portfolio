@@ -3,44 +3,64 @@ import { Variants } from "framer-motion";
 // Basic animations
 export const fadeInUp: Variants = {
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, ease: "easeOut" },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  },
 };
 
 export const fadeIn: Variants = {
   initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { duration: 0.5 },
+  animate: {
+    opacity: 1,
+    transition: { duration: 0.5 }
+  },
 };
 
 export const scaleIn: Variants = {
   initial: { opacity: 0, scale: 0.8 },
-  animate: { opacity: 1, scale: 1 },
-  transition: { duration: 0.5, type: "spring", stiffness: 100 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, type: "spring", stiffness: 100 }
+  },
 };
 
 export const slideInLeft: Variants = {
   initial: { opacity: 0, x: -50 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: "easeOut" },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  },
 };
 
 export const slideInRight: Variants = {
   initial: { opacity: 0, x: 50 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: "easeOut" },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  },
 };
 
 export const slideDown: Variants = {
   initial: { opacity: 0, y: -50 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  },
 };
 
 export const slideUp: Variants = {
   initial: { opacity: 0, y: 50 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  },
 };
 
 // Container animations for stagger children
@@ -79,22 +99,22 @@ export const glowPulse: Variants = {
       "0 0 40px rgba(59, 130, 246, 0.6)",
       "0 0 20px rgba(59, 130, 246, 0.3)",
     ],
+    transition: { duration: 2, repeat: Infinity },
   },
-  transition: { duration: 2, repeat: Infinity },
 };
 
 export const gradientShift: Variants = {
   animate: {
     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+    transition: { duration: 5, repeat: Infinity, ease: "linear" },
   },
-  transition: { duration: 5, repeat: Infinity, ease: "linear" },
 };
 
 export const rotate: Variants = {
   animate: {
     rotate: 360,
+    transition: { duration: 20, repeat: Infinity, ease: "linear" },
   },
-  transition: { duration: 20, repeat: Infinity, ease: "linear" },
 };
 
 // Hover animations
