@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import PreloaderWrapper from "@/components/ui/PreloaderWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,8 +13,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cliford Ndonwie Nchotie - Aspiring Full-Stack Developer",
-  description: "Aspiring Full-Stack Developer passionate about AI-powered backends, RAG pipelines, and scalable infrastructure. Learning and building intelligent systems with Java, TypeScript, and Python.",
+  title: "Cliford Ndonwie Nchotie - Aspiring Lead Engineer",
+  description: "Aspiring Lead Engineer specializing in low-latency, high-throughput backend architecture and end-to-end AI pipelines. Building scalable systems that connect mission-critical infrastructure with RAG/LLM automation.",
   keywords: [
     "Full-Stack Developer",
     "AI/ML",
@@ -38,14 +37,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: "https://nchotie.xyz",
-    title: "Cliford Ndonwie Nchotie - Aspiring Full-Stack Developer",
-    description: "Learning and building intelligent systems with AI/ML, Java, and TypeScript",
+    title: "Cliford Ndonwie Nchotie - Aspiring Lead Engineer",
+    description: "Building scalable, reliable systems that connect mission-critical infrastructure with RAG/LLM automation",
     siteName: "Cliford Ndonwie Nchotie Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cliford Ndonwie Nchotie - Full-Stack Developer",
-    description: "Learning AI/ML • Backend Development • Bayreuth, Germany",
+    title: "Cliford Ndonwie Nchotie - Aspiring Lead Engineer",
+    description: "Backend Architecture • AI/ML Pipelines • RAG/LLM • Bayreuth, Germany",
   },
   robots: {
     index: true,
@@ -64,7 +63,7 @@ export default function RootLayout({
         <link rel="canonical" href="https://nchotie.xyz" />
       </head>
       <body className="font-sans">
-        <PreloaderWrapper>{children}</PreloaderWrapper>
+        {children}
       </body>
     </html>
   );

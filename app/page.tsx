@@ -6,7 +6,6 @@ import TechStackShowcase from "@/components/tech-stack/TechStackShowcase";
 import CaseStudyCard from "@/components/projects/CaseStudyCard";
 import ExperienceTimeline from "@/components/experience/ExperienceTimeline";
 import InteractiveTerminal from "@/components/ui/InteractiveTerminal";
-import GitHubActivity from "@/components/github/GitHubActivity";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { projects } from "@/lib/projectData";
 
@@ -48,9 +47,6 @@ export default function Home() {
 
       {/* Interactive Terminal */}
       <InteractiveTerminal />
-
-      {/* GitHub Activity */}
-      <GitHubActivity />
 
       {/* Contact CTA */}
       <section id="contact" className="py-24 relative overflow-hidden">
