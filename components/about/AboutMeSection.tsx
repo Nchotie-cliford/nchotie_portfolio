@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import SectionHeader from "../ui/SectionHeader";
 import ProfileCard from "./ProfileCard";
 import ValuesPills from "./ValuesPills";
-import MetricCard from "../ui/MetricCard";
 import GradientText from "../ui/GradientText";
 
 export default function AboutMeSection() {
@@ -68,49 +67,6 @@ export default function AboutMeSection() {
                 <ValuesPills />
               </motion.div>
 
-              {/* Mini Stats Grid */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-              >
-                <h4 className="text-lg font-semibold text-foreground mb-4">
-                  Quick <GradientText gradient="gold">Stats</GradientText>
-                </h4>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <MetricCard
-                    value={2}
-                    label="Years Coding"
-                    icon="💻"
-                    suffix="+"
-                    variant="primary"
-                  />
-                  <MetricCard
-                    value={3}
-                    label="Projects Built"
-                    icon="🚀"
-                    suffix="+"
-                    trend="up"
-                    variant="accent"
-                  />
-                  <MetricCard
-                    value={15}
-                    label="Technologies"
-                    icon="⚡"
-                    suffix="+"
-                    variant="success"
-                  />
-                  <MetricCard
-                    value={1000}
-                    label="Support Tickets"
-                    icon="🎯"
-                    suffix="+"
-                    trend="up"
-                    variant="default"
-                  />
-                </div>
-              </motion.div>
             </div>
           </div>
         </div>
