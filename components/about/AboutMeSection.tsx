@@ -37,19 +37,15 @@ export default function AboutMeSection() {
                   My <GradientText gradient="primary">Philosophy</GradientText>
                 </h3>
 
-                <div className="glass-card p-6 rounded-xl space-y-4 text-foreground-muted leading-relaxed">
+                <div className="glass-card p-6 rounded-xl text-foreground-muted leading-relaxed">
                   <p>
-                    I'm <span className="text-primary-light font-semibold">never satisfied with my goals</span>,
-                    and I'm always fighting to improve. I never stop learning and love reaching new heights.
-                    I'm an <span className="text-accent-gold font-semibold">optimistic and faithful believer</span> that
-                    for every problem, there is always a solution.
-                  </p>
-
-                  <p>
-                    I think that to be <span className="text-accent-success font-semibold">efficient in my work</span>,
-                    I need to be healthy, so I like to{" "}
-                    <span className="text-foreground font-medium">meditate every day, run for one hour, and exercise during the half-day break</span>.
-                    This helps me keep my mind awake and skillfully manage my tasks.
+                    I am never satisfied with my goals, and I am always fighting to improve. I never stop learning
+                    and love reaching new heights. I am an optimistic and faithful believer that for every problem,
+                    there is always a solution. I live by the principle that{" "}
+                    <span className="text-primary-light font-semibold">setbacks are merely setups for a stronger comeback</span>.
+                    My journey has taught me that with{" "}
+                    <span className="text-accent-gold font-semibold">hard work and a clear vision</span>,
+                    any goal is within reach.
                   </p>
                 </div>
               </motion.div>
