@@ -74,9 +74,9 @@ export default function EnhancedHero() {
                 transition={{ duration: 0.4, delay: 0.7 }}
                 className="block text-foreground"
               >
-                Building{" "}
+                Hi, I&apos;m{" "}
                 <GradientText gradient="hero" animated>
-                  Enterprise AI Systems
+                  Cliford
                 </GradientText>
               </motion.span>
               <motion.span
@@ -85,9 +85,8 @@ export default function EnhancedHero() {
                 transition={{ duration: 0.4, delay: 0.9 }}
                 className="block text-foreground mt-2"
               >
-                for the{" "}
                 <GradientText gradient="gold" animated>
-                  Next Generation
+                  Ndonwie Nchotie
                 </GradientText>
               </motion.span>
             </motion.h1>
@@ -103,12 +102,14 @@ export default function EnhancedHero() {
             transition={{ duration: 0.5, delay: 1.7 }}
             className="text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto leading-relaxed"
           >
-            Aspiring Full-Stack Developer passionate about{" "}
-            <span className="text-primary-light font-semibold">AI-powered backends</span>,{" "}
-            <span className="text-accent-gold font-semibold">RAG pipelines</span>, and{" "}
-            <span className="text-primary-light font-semibold">scalable infrastructure</span>.
+            Aspiring Lead Engineer specializing in{" "}
+            <span className="text-primary-light font-semibold">low-latency, high-throughput backend architecture</span>{" "}
+            and{" "}
+            <span className="text-accent-gold font-semibold">end-to-end AI pipelines</span>.
             <br />
-            Learning and building through real-world projects that bridge AI and enterprise architecture.
+            I build scalable, reliable systems that connect{" "}
+            <span className="text-primary-light font-semibold">mission-critical infrastructure</span>{" "}
+            with RAG/LLM automation.
           </motion.p>
 
           {/* Stage 5: CTA Buttons (2-2.5s) */}

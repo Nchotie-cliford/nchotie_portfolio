@@ -22,9 +22,6 @@ export default function Home() {
       {/* About Me Section with Profile */}
       <AboutMeSection />
 
-      {/* Tech Stack Showcase */}
-      <TechStackShowcase />
-
       {/* Featured Projects - Case Studies */}
       <section id="projects" className="py-24 relative overflow-hidden">
         <div className="container mx-auto px-6">
@@ -41,6 +38,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Tech Stack Showcase */}
+      <TechStackShowcase />
 
       {/* Experience Timeline */}
       <ExperienceTimeline />
