@@ -1,13 +1,16 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/navigation/Navbar";
 import FloatingNav from "@/components/navigation/FloatingNav";
 import EnhancedHero from "@/components/hero/EnhancedHero";
-import AboutMeSection from "@/components/about/AboutMeSection";
-import TechStackShowcase from "@/components/tech-stack/TechStackShowcase";
-import CaseStudyCard from "@/components/projects/CaseStudyCard";
-import ExperienceTimeline from "@/components/experience/ExperienceTimeline";
-import InteractiveTerminal from "@/components/ui/InteractiveTerminal";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { projects } from "@/lib/projectData";
+
+// Lazy-load below-the-fold sections so they don't block initial paint
+const AboutMeSection = dynamic(() => import("@/components/about/AboutMeSection"));
+const CaseStudyCard = dynamic(() => import("@/components/projects/CaseStudyCard"));
+const TechStackShowcase = dynamic(() => import("@/components/tech-stack/TechStackShowcase"));
+const ExperienceTimeline = dynamic(() => import("@/components/experience/ExperienceTimeline"));
+const InteractiveTerminal = dynamic(() => import("@/components/ui/InteractiveTerminal"));
 
 export default function Home() {
   return (

@@ -18,31 +18,36 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      // Calculate scroll progress
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
-      setScrollProgress(progress);
+      if (ticking) return;
+      ticking = true;
 
-      // Update scrolled state
-      setIsScrolled(window.scrollY > 50);
+      requestAnimationFrame(() => {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (window.scrollY / totalHeight) * 100;
+        setScrollProgress(progress);
+        setIsScrolled(window.scrollY > 50);
 
-      // Detect active section
-      const sections = navLinks.map((link) => link.href.substring(1));
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            break;
+        const sectionIds = navLinks.map((link) => link.href.substring(1));
+        for (const section of sectionIds) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 100 && rect.bottom >= 100) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
-      }
+
+        ticking = false;
+      });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial call
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

@@ -29,7 +29,7 @@ export default function EnhancedHero() {
       <div className="absolute top-1/2 left-1/2 w-96 h-96 rounded-full bg-purple-500/10 blur-3xl animate-pulse" style={{ animationDuration: "6s", animationDelay: "2s" }} />
 
       {/* Layer 3: Particles */}
-      <ParticleBackground particleCount={60} />
+      <ParticleBackground particleCount={30} />
 
       {/* Layer 4: Diagonal Light Streaks */}
       <div className="absolute inset-0 opacity-5">
@@ -42,11 +42,11 @@ export default function EnhancedHero() {
       <div className="relative z-10 container mx-auto px-6 py-32">
         <div className="max-w-6xl mx-auto text-center space-y-8">
 
-          {/* Stage 1: Status Badge (0-0.5s) */}
+          {/* Stage 1: Status Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="inline-flex items-center gap-3 glass-primary px-5 py-2.5 rounded-full text-sm font-medium"
           >
             <span className="relative flex h-2.5 w-2.5">
@@ -60,18 +60,18 @@ export default function EnhancedHero() {
             <span className="text-foreground-muted">Bayreuth, Deutschland</span>
           </motion.div>
 
-          {/* Stage 2: Headline (0.5-1s) - Word by word */}
+          {/* Stage 2: Headline */}
           <div className="space-y-4">
             <motion.h1
               className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
             >
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.7 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
                 className="block text-foreground"
               >
                 Hi, I&apos;m{" "}
@@ -82,7 +82,7 @@ export default function EnhancedHero() {
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.9 }}
+                transition={{ duration: 0.3, delay: 0.45 }}
                 className="block text-foreground mt-2"
               >
                 <GradientText gradient="gold" animated>
@@ -95,11 +95,11 @@ export default function EnhancedHero() {
           {/* Stage 3: Live Data Ticker (1-1.5s) */}
           <DataTicker />
 
-          {/* Stage 4: Subheading (1.5-2s) */}
+          {/* Stage 4: Subheading */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.7 }}
+            transition={{ duration: 0.4, delay: 0.65 }}
             className="text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto leading-relaxed"
           >
             Aspiring Lead Engineer specializing in{" "}
@@ -112,11 +112,11 @@ export default function EnhancedHero() {
             with RAG/LLM automation.
           </motion.p>
 
-          {/* Stage 5: CTA Buttons (2-2.5s) */}
+          {/* Stage 5: CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 2.2, type: "spring", stiffness: 100 }}
+            transition={{ duration: 0.4, delay: 0.85, type: "spring", stiffness: 120 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
           >
             <motion.a
@@ -175,7 +175,7 @@ export default function EnhancedHero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 3 }}
+        transition={{ duration: 0.5, delay: 1.2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2 text-foreground-subtle">

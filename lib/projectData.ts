@@ -40,7 +40,7 @@ export const projects = [
     techStack: ["Next.js", "TypeScript", "Spring Boot", "Java", "PostgreSQL", "Redis", "RabbitMQ", "S3", "FFmpeg", "Docker"],
     impact: "Price aggregation & scoring • AI itinerary generation • Vertical video recap studio • Async rendering pipeline",
     imageUrl: "/images/urlaubpilot-thumbnail.jpg",
-    githubUrl: "https://github.com/Nchotie-cliford/urlaubpilot",
+    githubUrl: "https://github.com/Nchotie-cliford/UrlaubPilot",
     liveUrl: "https://nchotie.xyz",
     category: "Fullstack" as const,
   },

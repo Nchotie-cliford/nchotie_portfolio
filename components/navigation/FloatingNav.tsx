@@ -15,28 +15,36 @@ export default function FloatingNav() {
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Check if we're at the very top
-      if (window.scrollY < 100) {
-        setActiveSection("hero");
-        return;
-      }
+    let ticking = false;
 
-      // Detect active section
-      for (const section of sections) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 200) {
-            setActiveSection(section.id);
-            break;
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        if (window.scrollY < 100) {
+          setActiveSection("hero");
+          ticking = false;
+          return;
+        }
+
+        for (const section of sections) {
+          const element = document.getElementById(section.id);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 200 && rect.bottom >= 200) {
+              setActiveSection(section.id);
+              break;
+            }
           }
         }
-      }
+
+        ticking = false;
+      });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial call
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

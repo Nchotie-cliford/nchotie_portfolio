@@ -19,13 +19,14 @@ interface ParticleBackgroundProps {
 }
 
 export default function ParticleBackground({
-  particleCount = 50,
+  particleCount = 30,
   colors = ["#3B82F6", "#8B5CF6", "#EC4899"],
   className = "",
 }: ParticleBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number | undefined>(undefined);
+  const frameRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -53,24 +54,26 @@ export default function ParticleBackground({
       opacity: Math.random() * 0.3 + 0.3,
     }));
 
-    // Animation loop
+    // Animation loop — renders every other frame to halve CPU/GPU cost
     const animate = () => {
+      animationRef.current = requestAnimationFrame(animate);
+
+      frameRef.current++;
+      if (frameRef.current % 2 !== 0) return;
+
       if (!canvas || !ctx) return;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particlesRef.current.forEach((particle) => {
-        // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
 
-        // Wrap around edges
         if (particle.x < 0) particle.x = canvas.width;
         if (particle.x > canvas.width) particle.x = 0;
         if (particle.y < 0) particle.y = canvas.height;
         if (particle.y > canvas.height) particle.y = 0;
 
-        // Draw particle
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
@@ -78,8 +81,6 @@ export default function ParticleBackground({
         ctx.fill();
         ctx.globalAlpha = 1;
       });
-
-      animationRef.current = requestAnimationFrame(animate);
     };
 
     animate();
