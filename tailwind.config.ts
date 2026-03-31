@@ -10,14 +10,14 @@ const config: Config = {
     extend: {
       colors: {
         background: {
-          DEFAULT: "#0A0E1A",
-          secondary: "#111827",
-          tertiary: "#1E293B",
+          DEFAULT: "#09090b",   // zinc-950
+          secondary: "#18181b", // zinc-900
+          tertiary: "#27272a",  // zinc-800
         },
         foreground: {
-          DEFAULT: "#F8FAFC",
-          muted: "#94A3B8",
-          subtle: "#64748B",
+          DEFAULT: "#fafaf9",  // stone-50
+          muted: "#a1a1aa",   // zinc-400
+          subtle: "#71717a",  // zinc-500
         },
         primary: {
           DEFAULT: "#3B82F6",
@@ -29,8 +29,8 @@ const config: Config = {
           success: "#10B981",
         },
         border: {
-          DEFAULT: "#1E293B",
-          light: "#334155",
+          DEFAULT: "#27272a",  // zinc-800
+          light: "#3f3f46",   // zinc-700
         },
       },
       animation: {

@@ -1,28 +1,42 @@
 "use client";
 
 import { motion } from "framer-motion";
-import GradientText from "./GradientText";
 
 interface SectionHeaderProps {
   title: string;
   subtitle?: string;
   accent?: string;
-  align?: "left" | "center" | "right";
-  gradient?: "primary" | "gold" | "success" | "hero";
+  /** "centered" — full-width centered heading (default)
+   *  "sidebar"  — small uppercase label for sidebar-grid sections */
+  layout?: "centered" | "sidebar";
 }
 
 export default function SectionHeader({
   title,
   subtitle,
   accent,
-  align = "center",
-  gradient = "primary",
+  layout = "centered",
 }: SectionHeaderProps) {
-  const alignmentClass = {
-    left: "text-left",
-    center: "text-center",
-    right: "text-right",
-  };
+  if (layout === "sidebar") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+      >
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-foreground-subtle">
+          {title}
+          {accent && ` ${accent}`}
+        </h2>
+        {subtitle && (
+          <p className="mt-2 text-sm text-foreground-subtle leading-relaxed">
+            {subtitle}
+          </p>
+        )}
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
@@ -30,14 +44,16 @@ export default function SectionHeader({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className={`mb-16 ${alignmentClass[align]}`}
+      className="mb-16 text-center"
     >
-      <h2 className="text-4xl md:text-5xl font-bold mb-4">
-        <span className="text-foreground">{title} </span>
-        {accent && <GradientText gradient={gradient}>{accent}</GradientText>}
+      <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-3 text-foreground">
+        {title}
+        {accent && (
+          <span className="text-primary-light"> {accent}</span>
+        )}
       </h2>
       {subtitle && (
-        <p className="text-foreground-muted text-lg max-w-2xl mx-auto">
+        <p className="text-foreground-muted text-base max-w-xl mx-auto">
           {subtitle}
         </p>
       )}

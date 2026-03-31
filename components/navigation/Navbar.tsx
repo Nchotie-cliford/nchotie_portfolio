@@ -70,15 +70,15 @@ export default function Navbar() {
           fixed top-0 left-0 right-0 z-50 transition-all duration-300
           ${
             isScrolled
-              ? "glass-card shadow-lg shadow-primary/5"
+              ? "bg-background/80 backdrop-blur-md border-b border-border/40"
               : "bg-transparent"
           }
         `}
       >
-        {/* Progress bar */}
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-background-secondary">
+        {/* Scroll progress */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-border/0">
           <motion.div
-            className="h-full bg-gradient-to-r from-primary via-purple-500 to-accent-gold"
+            className="h-full bg-primary/60"
             style={{ width: `${scrollProgress}%` }}
             transition={{ duration: 0.1 }}
           />
@@ -125,22 +125,20 @@ export default function Navbar() {
                 </button>
               ))}
 
-              {/* Status Badge */}
-              <div className="glass-primary px-4 py-2 rounded-full flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
+              {/* Status dot */}
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-success opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-success" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-success" />
                 </span>
-                <span className="text-xs font-medium text-primary-light">
-                  Available
-                </span>
+                <span className="text-xs text-foreground-subtle">Available</span>
               </div>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden relative w-10 h-10 rounded-lg glass-card flex items-center justify-center"
+              className="md:hidden relative w-10 h-10 rounded-lg border border-border/60 flex items-center justify-center hover:border-border-light/60 transition-colors"
               aria-label="Toggle menu"
             >
               <div className="flex flex-col gap-1.5">
@@ -176,7 +174,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-20 right-0 bottom-0 w-full sm:w-80 glass-card z-40 md:hidden"
+            className="fixed top-20 right-0 bottom-0 w-full sm:w-80 bg-background/95 backdrop-blur-md border-l border-border/40 z-40 md:hidden"
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link, index) => (
@@ -199,15 +197,13 @@ export default function Navbar() {
                 </motion.button>
               ))}
 
-              {/* Mobile Status Badge */}
-              <div className="glass-primary px-4 py-3 rounded-lg flex items-center gap-2 mt-4">
-                <span className="relative flex h-2 w-2">
+              {/* Mobile status */}
+              <div className="flex items-center gap-2 mt-4 px-4">
+                <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-success opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-success" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-success" />
                 </span>
-                <span className="text-sm font-medium text-primary-light">
-                  Available for Hire
-                </span>
+                <span className="text-sm text-foreground-subtle">Available</span>
               </div>
             </div>
           </motion.div>

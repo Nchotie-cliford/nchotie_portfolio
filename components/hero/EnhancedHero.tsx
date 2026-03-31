@@ -2,61 +2,26 @@
 
 import { motion } from "framer-motion";
 import GradientText from "../ui/GradientText";
-import ParticleBackground from "../ui/ParticleBackground";
 import DataTicker from "./DataTicker";
 import MiniTerminal from "./MiniTerminal";
 
 export default function EnhancedHero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Multi-layer Background */}
-
-      {/* Layer 1: Animated Grid */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(to right, #3B82F6 1px, transparent 1px),
-                             linear-gradient(to bottom, #3B82F6 1px, transparent 1px)`,
-            backgroundSize: "50px 50px",
-          }}
-        />
-      </div>
-
-      {/* Layer 2: Gradient Orbs */}
-      <div className="absolute top-1/4 -left-48 w-96 h-96 rounded-full bg-primary/20 blur-3xl animate-pulse" style={{ animationDuration: "4s" }} />
-      <div className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full bg-accent-gold/15 blur-3xl animate-pulse" style={{ animationDuration: "5s", animationDelay: "1s" }} />
-      <div className="absolute top-1/2 left-1/2 w-96 h-96 rounded-full bg-purple-500/10 blur-3xl animate-pulse" style={{ animationDuration: "6s", animationDelay: "2s" }} />
-
-      {/* Layer 3: Particles */}
-      <ParticleBackground particleCount={30} />
-
-      {/* Layer 4: Diagonal Light Streaks */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-transparent via-primary to-transparent transform -skew-x-12" />
-        <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-transparent via-accent-gold to-transparent transform -skew-x-12 animate-pulse" style={{ animationDuration: "3s" }} />
-        <div className="absolute top-0 left-3/4 w-1 h-full bg-gradient-to-b from-transparent via-purple-500 to-transparent transform -skew-x-12" />
-      </div>
+      {/* Subtle radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.06)_0%,transparent_70%)]" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-32">
         <div className="max-w-6xl mx-auto text-center space-y-8">
 
-          {/* Stage 1: Status Badge */}
+          {/* Stage 1: Location Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
             className="inline-flex items-center gap-3 glass-primary px-5 py-2.5 rounded-full text-sm font-medium"
           >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-success opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-success" />
-            </span>
-            <span className="text-primary-light">
-              Open to IT Engineer Apprenticeships
-            </span>
-            <span className="text-foreground-muted">•</span>
             <span className="text-foreground-muted">Bayreuth, Deutschland</span>
           </motion.div>
 

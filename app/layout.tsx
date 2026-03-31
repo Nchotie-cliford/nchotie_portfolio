@@ -63,6 +63,14 @@ export default function RootLayout({
         <link rel="canonical" href="https://nchotie.xyz" />
       </head>
       <body className="font-sans">
+        {/* Site-wide fixed radial gradient — subtle blue from top-center */}
+        <div
+          className="fixed inset-0 pointer-events-none z-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 90% 55% at 50% -5%, rgba(59,130,246,0.07) 0%, transparent 55%)",
+          }}
+        />
         {children}
       </body>
     </html>

@@ -17,28 +17,28 @@ export default function GlassCard({
   hoverable = true,
 }: GlassCardProps) {
   const variantStyles = {
-    default: "bg-background-tertiary/70 border-border-light/20",
-    primary: "bg-primary/10 border-primary/20",
-    accent: "bg-accent-gold/10 border-accent-gold/20",
-    success: "bg-accent-success/10 border-accent-success/20",
+    default: "bg-background-secondary/60 border-border/60",
+    primary: "bg-primary/8 border-primary/15",
+    accent: "bg-accent-gold/8 border-accent-gold/15",
+    success: "bg-accent-success/8 border-accent-success/15",
   };
 
   const hoverStyles = hoverable
-    ? "transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/50"
+    ? "transition-all duration-200 hover:bg-background-secondary/80 hover:border-border-light/50"
     : "";
 
   return (
     <motion.div
       className={`
-        rounded-2xl border backdrop-blur-xl
+        rounded-xl border
         ${variantStyles[variant]}
         ${hoverStyles}
         ${className}
       `}
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
     >
       {children}
     </motion.div>

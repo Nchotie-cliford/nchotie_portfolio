@@ -3,146 +3,113 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import SectionHeader from "../ui/SectionHeader";
-import GlassCard from "../ui/GlassCard";
-import ProgressCircle from "../ui/ProgressCircle";
 
 interface TechItem {
   name: string;
-  icon: string;
   category: string;
   proficiency: number;
-  color: string;
   years: number;
 }
 
 const techStack: TechItem[] = [
-  { name: "TypeScript", icon: "TS", category: "Frontend", proficiency: 95, color: "#3B82F6", years: 2 },
-  { name: "Java", icon: "☕", category: "Backend", proficiency: 90, color: "#F59E0B", years: 2 },
-  { name: "Python", icon: "🐍", category: "AI/ML", proficiency: 90, color: "#10B981", years: 2 },
-  { name: "Spring Boot", icon: "🍃", category: "Backend", proficiency: 90, color: "#10B981", years: 2 },
-  { name: "FastAPI", icon: "⚡", category: "Backend", proficiency: 95, color: "#3B82F6", years: 1 },
-  { name: "PostgreSQL", icon: "🐘", category: "Database", proficiency: 85, color: "#3B82F6", years: 2 },
-  { name: "Docker", icon: "🐳", category: "DevOps", proficiency: 85, color: "#3B82F6", years: 1 },
-  { name: "OpenAI API", icon: "🤖", category: "AI/ML", proficiency: 95, color: "#EC4899", years: 1 },
-  { name: "React/Next.js", icon: "⚛️", category: "Frontend", proficiency: 90, color: "#3B82F6", years: 2 },
-  { name: "Redis", icon: "🔴", category: "Database", proficiency: 80, color: "#EF4444", years: 1 },
-  { name: "C#/.NET", icon: "#️⃣", category: "Backend", proficiency: 75, color: "#8B5CF6", years: 1 },
+  { name: "TypeScript", category: "Frontend", proficiency: 95, years: 2 },
+  { name: "React / Next.js", category: "Frontend", proficiency: 90, years: 2 },
+  { name: "Java", category: "Backend", proficiency: 90, years: 2 },
+  { name: "Spring Boot", category: "Backend", proficiency: 90, years: 2 },
+  { name: "Python", category: "AI/ML", proficiency: 90, years: 2 },
+  { name: "FastAPI", category: "Backend", proficiency: 95, years: 1 },
+  { name: "PostgreSQL", category: "Database", proficiency: 85, years: 2 },
+  { name: "Redis", category: "Database", proficiency: 80, years: 1 },
+  { name: "Docker", category: "DevOps", proficiency: 85, years: 1 },
+  { name: "OpenAI API", category: "AI/ML", proficiency: 95, years: 1 },
+  { name: "C# / .NET", category: "Backend", proficiency: 75, years: 1 },
 ];
 
 const categories = ["All", "Frontend", "Backend", "AI/ML", "Database", "DevOps"];
 
-export default function TechStackShowcase() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+const categoryColor: Record<string, string> = {
+  Frontend: "text-primary-light border-primary/20 bg-primary/8",
+  Backend: "text-accent-success border-accent-success/20 bg-accent-success/8",
+  "AI/ML": "text-purple-400 border-purple-400/20 bg-purple-400/8",
+  Database: "text-accent-gold border-accent-gold/20 bg-accent-gold/8",
+  DevOps: "text-foreground-muted border-border-light/40 bg-background-secondary",
+};
 
-  const filteredTech =
-    selectedCategory === "All"
-      ? techStack
-      : techStack.filter((tech) => tech.category === selectedCategory);
+export default function TechStackShowcase() {
+  const [selected, setSelected] = useState("All");
+
+  const filtered =
+    selected === "All" ? techStack : techStack.filter((t) => t.category === selected);
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-20 relative">
       <div className="container mx-auto px-6">
-        <SectionHeader
-          title="Tech"
-          accent="Arsenal"
-          subtitle="Production-tested technologies for building enterprise-grade AI systems"
-        />
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+            {/* Sidebar */}
+            <div className="md:col-span-1">
+              <div className="md:sticky md:top-24 space-y-6">
+                <SectionHeader layout="sidebar" title="Skills" />
 
-        {/* Category Filter Pills */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
-          {categories.map((category) => (
-            <motion.button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`
-                px-6 py-2 rounded-full text-sm font-medium transition-all
-                ${
-                  selectedCategory === category
-                    ? "glass-primary text-primary shadow-lg"
-                    : "glass-card text-foreground-muted hover:glass-primary"
-                }
-              `}
-            >
-              {category}
-            </motion.button>
-          ))}
-        </motion.div>
-
-        {/* Tech Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto"
-        >
-          {filteredTech.map((tech, index) => (
-            <motion.div
-              key={tech.name}
-              layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-            >
-              <GlassCard hoverable className="p-6 h-full">
-                {/* Tech Icon and Category */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="text-4xl">{tech.icon}</div>
-                  <span className="text-xs px-2 py-1 rounded-full glass-primary text-primary">
-                    {tech.category}
-                  </span>
+                {/* Category filter */}
+                <div className="flex flex-wrap md:flex-col gap-2">
+                  {categories.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setSelected(cat)}
+                      className={`text-left text-sm transition-colors px-1 py-0.5 rounded ${
+                        selected === cat
+                          ? "text-foreground font-medium"
+                          : "text-foreground-subtle hover:text-foreground-muted"
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
                 </div>
+              </div>
+            </div>
 
-                {/* Tech Name */}
-                <h3 className="text-xl font-bold text-foreground mb-2">
-                  {tech.name}
-                </h3>
+            {/* Tech grid */}
+            <div className="md:col-span-3">
+              <motion.div layout className="flex flex-wrap gap-2">
+                {filtered.map((tech, i) => (
+                  <motion.span
+                    key={tech.name}
+                    layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.2, delay: i * 0.03 }}
+                    className={`
+                      inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                      border text-sm font-medium transition-all
+                      ${categoryColor[tech.category] ?? "text-foreground-muted border-border bg-background-secondary"}
+                    `}
+                  >
+                    {tech.name}
+                    <span className="text-xs opacity-50 font-normal">
+                      {tech.years}y
+                    </span>
+                  </motion.span>
+                ))}
+              </motion.div>
 
-                {/* Years of Experience */}
-                <div className="text-sm text-foreground-muted mb-4">
-                  {tech.years} year{tech.years > 1 ? "s" : ""} experience
-                </div>
-
-                {/* Proficiency Progress Circle */}
-                <div className="flex justify-center">
-                  <ProgressCircle
-                    percentage={tech.proficiency}
-                    size={100}
-                    color={tech.color}
-                  />
-                </div>
-
-                {/* Hover Glow Effect */}
-                <div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"
-                  style={{
-                    background: `radial-gradient(circle at center, ${tech.color}, transparent)`,
-                  }}
-                />
-              </GlassCard>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Bottom Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <div className="inline-flex items-center gap-2 glass-primary px-6 py-3 rounded-full">
-            <span className="text-foreground-muted text-sm">Also experienced with:</span>
-            <span className="font-semibold text-primary text-sm">
-              Angular, Django, RabbitMQ, AWS, Power BI
-            </span>
+              {/* Also experienced with */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="mt-8 text-sm text-foreground-subtle"
+              >
+                Also experienced with{" "}
+                <span className="text-foreground-muted">
+                  Angular, Django, RabbitMQ, AWS, Power BI, Xamarin
+                </span>
+              </motion.p>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
