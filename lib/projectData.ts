@@ -46,6 +46,27 @@ export const projects = [
   },
 ];
 
+export const certificates = [
+  {
+    name: "Certificate Title",
+    issuer: "Issuing Organization",
+    date: "Month Year",
+    credentialUrl: "#",
+  },
+  {
+    name: "Certificate Title",
+    issuer: "Issuing Organization",
+    date: "Month Year",
+    credentialUrl: "#",
+  },
+  {
+    name: "Certificate Title",
+    issuer: "Issuing Organization",
+    date: "Month Year",
+    credentialUrl: "#",
+  },
+];
+
 export const experience = [
   {
     company: "Arvato Systems GmbH",

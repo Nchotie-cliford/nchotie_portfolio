@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import GradientText from "../ui/GradientText";
 
 const navLinks = [
@@ -125,6 +126,14 @@ export default function Navbar() {
                 </button>
               ))}
 
+              {/* Blog — separate page */}
+              <Link
+                href="/blog"
+                className="relative text-sm font-medium text-foreground-muted hover:text-foreground transition-colors duration-200"
+              >
+                Blog
+              </Link>
+
               {/* Status dot */}
               <div className="flex items-center gap-2">
                 <span className="relative flex h-1.5 w-1.5">
@@ -196,6 +205,15 @@ export default function Navbar() {
                   {link.name}
                 </motion.button>
               ))}
+
+              {/* Blog link */}
+              <Link
+                href="/blog"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-left px-4 py-3 rounded-lg transition-colors text-foreground-muted hover:text-foreground"
+              >
+                Blog
+              </Link>
 
               {/* Mobile status */}
               <div className="flex items-center gap-2 mt-4 px-4">

@@ -4,6 +4,7 @@ import FloatingNav from "@/components/navigation/FloatingNav";
 import EnhancedHero from "@/components/hero/EnhancedHero";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { projects } from "@/lib/projectData";
+import CertificatesSection from "@/components/certificates/CertificatesSection";
 
 // Lazy-load below-the-fold sections so they don't block initial paint
 const AboutMeSection = dynamic(() => import("@/components/about/AboutMeSection"));
@@ -54,6 +55,9 @@ export default function Home() {
 
       {/* Tech Stack */}
       <TechStackShowcase />
+
+      {/* Certificates */}
+      <CertificatesSection />
 
       {/* Experience */}
       <ExperienceTimeline />

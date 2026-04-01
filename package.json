@@ -9,10 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@giscus/react": "^3.1.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "framer-motion": "^11.15.0",
+    "gray-matter": "^4.0.3",
     "next": "15.5.12",
+    "next-mdx-remote": "^6.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "framer-motion": "^11.15.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^22",
