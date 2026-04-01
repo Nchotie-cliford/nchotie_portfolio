@@ -8,6 +8,7 @@ import GradientText from "../ui/GradientText";
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
+  { name: "Certificates", href: "#certificates" },
   { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
