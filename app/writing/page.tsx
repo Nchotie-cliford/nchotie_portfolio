@@ -5,44 +5,32 @@ import { getAllPosts } from "@/lib/posts";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog â€” Cliford Ndonwie Nchotie",
-  description: "AI engineering deep dives, dev talks, and honest opinions on where the industry is heading.",
+  title: "Writing",
+  description:
+    "Articles and notes from Cliford Ndonwie Nchotie â€” AI engineering, building in Germany, and lessons from production work.",
 };
 
-export default function BlogPage() {
+export default function WritingPage() {
   const posts = getAllPosts();
 
   return (
-    <main className="min-h-screen bg-background text-foreground relative z-10">
+    <main className="min-h-screen bg-background text-foreground">
       <Navbar />
 
       <div className="container mx-auto px-6 pt-28 pb-24">
         <div className="max-w-4xl mx-auto">
 
-          {/* Page header */}
           <div className="mb-16">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1.5 text-xs text-foreground-subtle hover:text-foreground-muted transition-colors mb-8"
-            >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to portfolio
-            </Link>
-
             <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground mb-3">
-              Blog
+              Writing
             </h1>
             <p className="text-foreground-muted text-base max-w-lg">
-              AI engineering deep dives, dev talks, and honest opinions on where
-              the industry is heading.
+              Notes on building AI systems, working in Germany, and what I&apos;m
+              learning along the way.
             </p>
           </div>
 
-          {/* Posts */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
-            {/* Sidebar */}
             <div className="md:col-span-1">
               <div className="md:sticky md:top-24">
                 <p className="text-xs font-semibold uppercase tracking-widest text-foreground-subtle">
@@ -51,12 +39,21 @@ export default function BlogPage() {
               </div>
             </div>
 
-            {/* Post list */}
             <div className="md:col-span-3">
               {posts.length === 0 ? (
-                <p className="text-sm text-foreground-subtle">No posts yet â€” check back soon.</p>
+                <div className="text-sm text-foreground-subtle space-y-1">
+                  <p>No posts yet.</p>
+                  <p className="text-xs">
+                    First up: lessons from building the Maisel&apos;s RAG system.
+                  </p>
+                </div>
               ) : (
-                posts.map((post) => <PostCard key={post.slug} post={post} />)
+                posts.map((post) => (
+                  <PostCard
+                    key={post.slug}
+                    post={{ ...post, slug: `/writing/${post.slug}` }}
+                  />
+                ))
               )}
             </div>
           </div>

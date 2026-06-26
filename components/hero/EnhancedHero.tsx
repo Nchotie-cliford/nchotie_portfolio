@@ -1,149 +1,101 @@
 "use client";
 
 import { motion } from "framer-motion";
-import GradientText from "../ui/GradientText";
-import DataTicker from "./DataTicker";
+import Link from "next/link";
 
 export default function EnhancedHero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center bg-background">
+      <div className="relative z-10 container mx-auto px-6 pt-36 pb-24">
+        <div className="max-w-3xl mx-auto">
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-32">
-        <div className="max-w-6xl mx-auto text-center space-y-8">
-
-          {/* Stage 1: Location Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+          {/* Location */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="inline-flex items-center gap-3 glass-primary px-5 py-2.5 rounded-full text-sm font-medium"
+            className="text-sm text-foreground-subtle mb-6 tracking-wide"
           >
-            <span className="text-foreground-muted">Bayreuth, Deutschland</span>
-          </motion.div>
-
-          {/* Stage 2: Headline */}
-          <div className="space-y-4">
-            <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-            >
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.3 }}
-                className="block text-foreground"
-              >
-                Hi, I&apos;m{" "}
-                <GradientText gradient="hero" animated>
-                  Cliford
-                </GradientText>
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.45 }}
-                className="block text-foreground mt-2"
-              >
-                <GradientText gradient="gold" animated>
-                  Ndonwie Nchotie
-                </GradientText>
-              </motion.span>
-            </motion.h1>
-          </div>
-
-          {/* Stage 3: Live Data Ticker (1-1.5s) */}
-          <DataTicker />
-
-          {/* Stage 4: Subheading */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.65 }}
-            className="text-lg md:text-xl text-foreground-muted max-w-2xl mx-auto leading-relaxed"
-          >
-            Builder. From Cameroon, based in Germany. Currently shipping production RAG systems
-            at Maisel&apos;s brewery in Bayreuth. Freelancing since 2017.
-            Building toward my own AI company.
+            Bayreuth → Munich, Germany
           </motion.p>
 
-          {/* Stage 5: CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.85, type: "spring", stiffness: 120 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+          {/* Name */}
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-8"
           >
-            <motion.a
-              href="#projects"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-lg bg-primary hover:bg-primary-dark transition-colors"
+            Cliford Nchotie
+          </motion.h1>
+
+          {/* One-breath intro */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.35 }}
+            className="text-xl md:text-2xl text-foreground-muted leading-relaxed max-w-2xl mb-12"
+          >
+            Building production AI systems in Germany — RAG, agents, and tools
+            for the Mittelstand. From Cameroon, based in Bayreuth → Munich this September.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.5 }}
+            className="flex flex-wrap gap-3 items-center"
+          >
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-lg bg-foreground hover:bg-foreground/80 transition-colors"
             >
               See My Work
-              <svg
-                className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </motion.a>
+            </Link>
 
-            <motion.a
-              href="/resume.pdf"
-              download
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold rounded-lg glass-card hover:glass-primary transition-all"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Download Resume
-            </motion.a>
-
-            <motion.a
+            <a
               href="https://github.com/Nchotie-cliford"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.1, rotate: 360 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:glass-primary transition-all"
-              transition={{ type: "spring", stiffness: 200 }}
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-lg border border-border text-foreground-muted hover:text-foreground hover:border-foreground/30 transition-colors"
             >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
               </svg>
-            </motion.a>
-          </motion.div>
+              GitHub
+            </a>
 
+            <a
+              href="https://linkedin.com/in/cliford-ndonwie-nchoti"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-lg border border-border text-foreground-muted hover:text-foreground hover:border-foreground/30 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              LinkedIn
+            </a>
+          </motion.div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1.2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <div className="flex flex-col items-center gap-2 text-foreground-subtle">
-          <span className="text-xs uppercase tracking-wider">Scroll to explore</span>
-          <motion.svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </motion.svg>
-        </div>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity }}
+          className="w-px h-10 bg-gradient-to-b from-transparent to-border-light mx-auto"
+        />
       </motion.div>
     </section>
   );

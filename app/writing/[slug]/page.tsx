@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const { meta } = getPost(slug);
     return {
-      title: `${meta.title} — Cliford Ndonwie Nchotie`,
+      title: meta.title,
       description: meta.description,
     };
   } catch {
@@ -36,12 +36,9 @@ function formatDate(dateStr: string) {
   });
 }
 
-// MDX components available inside posts
-const mdxComponents = {
-  VideoEmbed,
-};
+const mdxComponents = { VideoEmbed };
 
-export default async function BlogPostPage({ params }: Props) {
+export default async function WritingPostPage({ params }: Props) {
   const { slug } = await params;
 
   let post;
@@ -54,13 +51,12 @@ export default async function BlogPostPage({ params }: Props) {
   const { meta, content } = post;
 
   return (
-    <main className="min-h-screen bg-background text-foreground relative z-10">
+    <main className="min-h-screen bg-background text-foreground">
       <Navbar />
 
       <article className="container mx-auto px-6 pt-28 pb-24">
         <div className="max-w-2xl mx-auto">
 
-          {/* Back link */}
           <Link
             href="/writing"
             className="inline-flex items-center gap-1.5 text-xs text-foreground-subtle hover:text-foreground-muted transition-colors mb-10"
@@ -71,7 +67,6 @@ export default async function BlogPostPage({ params }: Props) {
             All posts
           </Link>
 
-          {/* Header */}
           <header className="mb-10 pb-8 border-b border-border/40">
             <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground mb-4 leading-tight">
               {meta.title}
@@ -95,14 +90,12 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </header>
 
-          {/* Optional video embed at top of post */}
           {meta.videoUrl && (
             <div className="mb-8">
               <VideoEmbed url={meta.videoUrl} title={meta.title} />
             </div>
           )}
 
-          {/* MDX content */}
           <div className="prose prose-zinc max-w-none
             prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-foreground
             prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4
@@ -119,7 +112,6 @@ export default async function BlogPostPage({ params }: Props) {
             <MDXRemote source={content} components={mdxComponents} />
           </div>
 
-          {/* Comments */}
           <GiscusComments />
         </div>
       </article>

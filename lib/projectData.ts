@@ -76,7 +76,6 @@ export const experience = [
     description: "Dual study program combining academic coursework in Computer Science with applied work experience at CANCOM SE.",
     achievements: [
       "Dual study program combining academic coursework in Computer Science with applied work experience at CANCOM SE",
-      "Placeholder — add specific team/focus area once CANCOM assignment is confirmed",
     ],
     tech: ["Computer Science", "Applied Engineering", "CANCOM SE"],
   },

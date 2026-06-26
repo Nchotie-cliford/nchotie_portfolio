@@ -1,228 +1,131 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import GradientText from "../ui/GradientText";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Experience", href: "/experience" },
+  { name: "Writing", href: "/writing" },
 ];
 
 export default function Navbar() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const pathname = usePathname();
 
-  useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-
-      requestAnimationFrame(() => {
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (window.scrollY / totalHeight) * 100;
-        setScrollProgress(progress);
-        setIsScrolled(window.scrollY > 50);
-
-        const sectionIds = navLinks.map((link) => link.href.substring(1));
-        for (const section of sectionIds) {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= 100 && rect.bottom >= 100) {
-              setActiveSection(section);
-              break;
-            }
-          }
-        }
-
-        ticking = false;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
-  };
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-        className={`
-          fixed top-0 left-0 right-0 z-50 transition-all duration-300
-          ${
-            isScrolled
-              ? "bg-background/80 backdrop-blur-md border-b border-border/40"
-              : "bg-transparent"
-          }
-        `}
+      {/* Floating pill nav */}
+      <motion.header
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="fixed top-5 left-1/2 -translate-x-1/2 z-50"
       >
-        {/* Scroll progress */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-border/0">
-          <motion.div
-            className="h-full bg-primary/60"
-            style={{ width: `${scrollProgress}%` }}
-            transition={{ duration: 0.1 }}
-          />
-        </div>
-
-        <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <motion.div
-              className="relative group cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              <span className="text-2xl font-bold text-foreground">
-                C<GradientText gradient="primary">N</GradientText>
-              </span>
-              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-            </motion.div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <button
-                  key={link.name}
-                  onClick={() => scrollToSection(link.href)}
-                  className={`
-                    relative text-sm font-medium transition-colors duration-200
-                    ${
-                      activeSection === link.href.substring(1)
-                        ? "text-primary"
-                        : "text-foreground-muted hover:text-foreground"
-                    }
-                  `}
-                >
-                  {link.name}
-                  {activeSection === link.href.substring(1) && (
-                    <motion.div
-                      layoutId="activeSection"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                </button>
-              ))}
-
-              {/* Writing — separate page */}
-              <Link
-                href="/blog"
-                className="relative text-sm font-medium text-foreground-muted hover:text-foreground transition-colors duration-200"
-              >
-                Writing
-              </Link>
-
-              {/* Status dot */}
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-success opacity-75" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-success" />
-                </span>
-                <span className="text-xs text-foreground-subtle">Available</span>
-              </div>
+        {/* Desktop pill */}
+        <nav className="hidden md:flex items-center gap-1 px-2 py-2 rounded-full bg-white/95 backdrop-blur-md border border-border/60 shadow-sm">
+          {/* Profile photo */}
+          <Link href="/" className="mr-1">
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-border/40 shrink-0">
+              <Image
+                src="/images/profile.jpg"
+                alt="Cliford Nchotie"
+                width={32}
+                height={32}
+                className="object-cover w-full h-full"
+              />
             </div>
+          </Link>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden relative w-10 h-10 rounded-lg border border-border/60 flex items-center justify-center hover:border-border-light/60 transition-colors"
-              aria-label="Toggle menu"
+          {/* Links */}
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`
+                relative px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200
+                ${isActive(link.href)
+                  ? "bg-foreground text-background"
+                  : "text-foreground-muted hover:text-foreground hover:bg-background-secondary"
+                }
+              `}
             >
-              <div className="flex flex-col gap-1.5">
-                <motion.span
-                  animate={{
-                    rotate: isMobileMenuOpen ? 45 : 0,
-                    y: isMobileMenuOpen ? 8 : 0,
-                  }}
-                  className="block w-5 h-0.5 bg-foreground"
-                />
-                <motion.span
-                  animate={{ opacity: isMobileMenuOpen ? 0 : 1 }}
-                  className="block w-5 h-0.5 bg-foreground"
-                />
-                <motion.span
-                  animate={{
-                    rotate: isMobileMenuOpen ? -45 : 0,
-                    y: isMobileMenuOpen ? -8 : 0,
-                  }}
-                  className="block w-5 h-0.5 bg-foreground"
-                />
-              </div>
-            </button>
-          </div>
-        </div>
-      </motion.nav>
+              {link.name}
+            </Link>
+          ))}
+        </nav>
 
-      {/* Mobile Menu */}
+        {/* Mobile pill */}
+        <div className="flex md:hidden items-center gap-2 px-3 py-2 rounded-full bg-white/95 backdrop-blur-md border border-border/60 shadow-sm">
+          <Link href="/">
+            <div className="w-7 h-7 rounded-full overflow-hidden border border-border/40 shrink-0">
+              <Image
+                src="/images/profile.jpg"
+                alt="Cliford Nchotie"
+                width={28}
+                height={28}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </Link>
+
+          <span className="text-sm font-medium text-foreground">Cliford</span>
+
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="ml-1 w-7 h-7 flex flex-col items-center justify-center gap-1"
+            aria-label="Toggle menu"
+          >
+            <motion.span
+              animate={{ rotate: isMobileMenuOpen ? 45 : 0, y: isMobileMenuOpen ? 5 : 0 }}
+              className="block w-4 h-px bg-foreground"
+            />
+            <motion.span
+              animate={{ opacity: isMobileMenuOpen ? 0 : 1 }}
+              className="block w-4 h-px bg-foreground"
+            />
+            <motion.span
+              animate={{ rotate: isMobileMenuOpen ? -45 : 0, y: isMobileMenuOpen ? -5 : 0 }}
+              className="block w-4 h-px bg-foreground"
+            />
+          </button>
+        </div>
+      </motion.header>
+
+      {/* Mobile dropdown */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-20 right-0 bottom-0 w-full sm:w-80 bg-background/95 backdrop-blur-md border-l border-border/40 z-40 md:hidden"
+            initial={{ opacity: 0, y: -8, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.95 }}
+            transition={{ duration: 0.15 }}
+            className="fixed top-20 left-1/2 -translate-x-1/2 z-40 md:hidden"
           >
-            <div className="flex flex-col p-6 gap-4">
-              {navLinks.map((link, index) => (
-                <motion.button
+            <div className="flex flex-col gap-1 p-2 rounded-2xl bg-white/95 backdrop-blur-md border border-border/60 shadow-md min-w-[160px]">
+              {navLinks.map((link) => (
+                <Link
                   key={link.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => scrollToSection(link.href)}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className={`
-                    text-left px-4 py-3 rounded-lg transition-colors
-                    ${
-                      activeSection === link.href.substring(1)
-                        ? "glass-primary text-primary"
-                        : "hover:glass-card text-foreground-muted"
+                    px-4 py-2 rounded-xl text-sm font-medium transition-colors
+                    ${isActive(link.href)
+                      ? "bg-foreground text-background"
+                      : "text-foreground-muted hover:text-foreground hover:bg-background-secondary"
                     }
                   `}
                 >
                   {link.name}
-                </motion.button>
+                </Link>
               ))}
-
-              {/* Writing link */}
-              <Link
-                href="/blog"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-left px-4 py-3 rounded-lg transition-colors text-foreground-muted hover:text-foreground"
-              >
-                Writing
-              </Link>
-
-              {/* Mobile status */}
-              <div className="flex items-center gap-2 mt-4 px-4">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-success opacity-75" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-success" />
-                </span>
-                <span className="text-sm text-foreground-subtle">Available</span>
-              </div>
             </div>
           </motion.div>
         )}
