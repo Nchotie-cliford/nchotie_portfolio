@@ -27,10 +27,10 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-fit"
+        className="fixed top-5 left-0 right-0 z-50 flex justify-center pointer-events-none"
       >
         {/* Desktop pill */}
-        <nav className="hidden md:flex items-center gap-1 px-2 py-2 rounded-full bg-white/95 backdrop-blur-md border border-border/60 shadow-sm">
+        <nav className="hidden md:flex items-center gap-1 px-2 py-2 rounded-full bg-white/95 backdrop-blur-md border border-border/60 shadow-sm pointer-events-auto">
           {/* Profile photo */}
           <Link href="/" className="mr-1">
             <div className="w-8 h-8 rounded-full overflow-hidden border border-border/40 shrink-0">
@@ -63,7 +63,7 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile pill */}
-        <div className="flex md:hidden items-center gap-2 px-3 py-2 rounded-full bg-white/95 backdrop-blur-md border border-border/60 shadow-sm">
+        <div className="flex md:hidden items-center gap-2 px-3 py-2 rounded-full bg-white/95 backdrop-blur-md border border-border/60 shadow-sm pointer-events-auto">
           <Link href="/">
             <div className="w-7 h-7 rounded-full overflow-hidden border border-border/40 shrink-0">
               <Image
@@ -107,7 +107,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.95 }}
             transition={{ duration: 0.15 }}
-            className="fixed top-20 left-1/2 -translate-x-1/2 z-40 md:hidden"
+            className="fixed top-20 left-0 right-0 z-40 flex justify-center md:hidden"
           >
             <div className="flex flex-col gap-1 p-2 rounded-2xl bg-white/95 backdrop-blur-md border border-border/60 shadow-md min-w-[160px]">
               {navLinks.map((link) => (
