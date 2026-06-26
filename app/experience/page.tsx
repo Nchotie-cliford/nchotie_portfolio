@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Navbar from "@/components/navigation/Navbar";
 import { experience } from "@/lib/projectData";
 import type { Metadata } from "next";
@@ -6,7 +6,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Experience",
   description:
-    "Work history of Cliford Ndonwie Nchotie â€” from IT support to production AI systems, and 9 years of freelance development.",
+    "Work history of Cliford Ndonwie Nchotie — CANCOM, Maisel's brewery (KI & Data Science), Arvato Systems, In-Reach, Fiverr (120+ projects). 9 years of building.",
+  alternates: { canonical: "https://nchotie.xyz/experience" },
+  openGraph: {
+    title: "Experience — Cliford Ndonwie Nchotie",
+    description:
+      "From IT support to production AI systems. CANCOM dual study, Maisel's RAG pipeline, Arvato Systems, and 9 years freelancing on Fiverr.",
+    url: "https://nchotie.xyz/experience",
+    images: [{ url: "https://nchotie.xyz/images/profile.jpg", width: 800, height: 800 }],
+  },
 };
 
 interface CompanyMeta {
@@ -36,10 +44,10 @@ const companyMeta: Record<string, CompanyMeta> = {
     color: "bg-zinc-600 text-white",
     logoSrc: "/images/in_reach.png",
   },
-  "UniversitÃ¤t Bayreuth": {
+  "Universität Bayreuth": {
     initials: "UBT",
     color: "bg-indigo-700 text-white",
-    logoSrc: "/images/UniversitÃ¤t_Bayreuth.svg.png",
+    logoSrc: "/images/Universität_Bayreuth.svg.png",
   },
   Fiverr: {
     initials: "F",
@@ -68,9 +76,7 @@ function LogoBadge({ meta }: { meta: CompanyMeta }) {
     );
   }
   return (
-    <div
-      className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold shrink-0 ${meta.color}`}
-    >
+    <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold shrink-0 ${meta.color}`}>
       {meta.initials}
     </div>
   );
@@ -85,7 +91,6 @@ export default function ExperiencePage() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
 
-            {/* Sidebar */}
             <div className="md:col-span-1">
               <div className="md:sticky md:top-24">
                 <h1 className="text-xs font-semibold uppercase tracking-widest text-foreground-subtle mb-3">
@@ -97,7 +102,6 @@ export default function ExperiencePage() {
               </div>
             </div>
 
-            {/* Entries */}
             <div className="md:col-span-3 divide-y divide-border/40">
               {experience.map((exp, index) => {
                 const meta = companyMeta[exp.company] ?? {
@@ -129,10 +133,7 @@ export default function ExperiencePage() {
 
                     <ul className="space-y-2 mb-4 ml-[4.5rem]">
                       {exp.achievements.map((a, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-2 text-sm text-foreground-muted"
-                        >
+                        <li key={i} className="flex items-start gap-2 text-sm text-foreground-muted">
                           <span className="mt-2 h-1 w-1 rounded-full bg-border-light shrink-0" />
                           {a}
                         </li>
@@ -159,4 +160,3 @@ export default function ExperiencePage() {
     </main>
   );
 }
-

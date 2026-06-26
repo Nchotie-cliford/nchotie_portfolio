@@ -50,6 +50,14 @@ export const metadata: Metadata = {
     description:
       "AI developer and builder based in Germany. Building RAG systems, AI products, and tools for the German market. Freelancing since 2017.",
     siteName: "Cliford Ndonwie Nchotie",
+    images: [
+      {
+        url: "https://nchotie.xyz/images/profile.jpg",
+        width: 800,
+        height: 800,
+        alt: "Cliford Ndonwie Nchotie — AI Developer & Builder",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -57,6 +65,7 @@ export const metadata: Metadata = {
     description:
       "AI developer and builder based in Germany. RAG systems · AI products · Freelancing since 2017.",
     creator: "@clifordnchotie",
+    images: ["https://nchotie.xyz/images/profile.jpg"],
   },
   robots: {
     index: true,
@@ -71,7 +80,15 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const jsonLd = [
+  {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Cliford Ndonwie Nchotie",
+  url: "https://nchotie.xyz",
+  author: { "@type": "Person", name: "Cliford Ndonwie Nchotie" },
+  },
+  {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Cliford Ndonwie Nchotie",
@@ -113,7 +130,8 @@ const jsonLd = {
     "@type": "CollegeOrUniversity",
     name: "Universität Bayreuth",
   },
-};
+  },
+];
 
 export default function RootLayout({
   children,

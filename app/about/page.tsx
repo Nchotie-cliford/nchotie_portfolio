@@ -1,11 +1,19 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Navbar from "@/components/navigation/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Cliford Ndonwie Nchotie â€” AI developer and builder from Cameroon, based in Germany. The full story behind the work.",
+    "Cliford Ndonwie Nchotie — AI developer and builder from Cameroon, based in Germany. Building toward an AI company for the German Mittelstand.",
+  alternates: { canonical: "https://nchotie.xyz/about" },
+  openGraph: {
+    title: "About — Cliford Ndonwie Nchotie",
+    description:
+      "From Cameroon, based in Germany. Building RAG systems, AI products, and working toward my own AI company for the German Mittelstand.",
+    url: "https://nchotie.xyz/about",
+    images: [{ url: "https://nchotie.xyz/images/profile.jpg", width: 800, height: 800 }],
+  },
 };
 
 export default function AboutPage() {
@@ -29,15 +37,15 @@ export default function AboutPage() {
 
           {/* Framing line */}
           <p className="text-sm text-foreground-subtle mb-12 leading-relaxed">
-            Each stop below â€” university IT support, Arvato Systems, Maisel&apos;s,
-            now CANCOM â€” is a deliberate step toward building my own AI company for
+            Each stop below &mdash; university IT support, Arvato Systems, Maisel&apos;s,
+            now CANCOM &mdash; is a deliberate step toward building my own AI company for
             the German Mittelstand.
           </p>
 
           {/* Bio */}
           <div className="space-y-6 text-foreground-muted leading-relaxed text-base">
             <p>
-              I&apos;m Cliford â€” originally from Cameroon, based in Bayreuth and moving
+              I&apos;m Cliford &mdash; originally from Cameroon, based in Bayreuth and moving
               to Munich this September. My goal is to start an AI company in Germany
               within the next six years, specifically targeting the Mittelstand: the
               mid-size family-owned businesses that form the backbone of the German
@@ -46,7 +54,7 @@ export default function AboutPage() {
 
             <p>
               Right now I&apos;m building a RAG system and the data infrastructure behind
-              it at Maisel&apos;s brewery in Bayreuth â€” real production work, not just
+              it at Maisel&apos;s brewery in Bayreuth &mdash; real production work, not just
               prototyping. The system connects cloud and on-premise data sources into
               a unified fabric that can power AI applications across the company. It&apos;s
               exactly the kind of problem I want to be solving commercially, so this
@@ -57,14 +65,14 @@ export default function AboutPage() {
               In September I&apos;m starting a dual study program in Informatik at IU
               Internationale Hochschule, partnered with CANCOM SE. This gives me the
               formal degree and direct experience inside one of Germany&apos;s largest IT
-              service companies â€” the kind of enterprise infrastructure and client
+              service companies &mdash; the kind of enterprise infrastructure and client
               relationships that are central to the market I eventually want to sell
               into.
             </p>
 
             <p>
               The employment is only part of it. I&apos;ve been freelancing on Fiverr since
-              2017 â€” over 120 completed projects â€” spanning web development, automation,
+              2017 &mdash; over 120 completed projects &mdash; spanning web development, automation,
               AI integration, and mobile apps. That track record is the foundation:
               it proves I can deliver independently, handle client relationships across
               cultures, and build things that work without a team structure underneath me.
@@ -72,7 +80,7 @@ export default function AboutPage() {
 
             <p>
               Alongside the day job and freelancing, I&apos;m building my own products.
-              iFemi is a community and dating platform for the African diaspora in Europe â€”
+              iFemi is a community and dating platform for the African diaspora in Europe &mdash;
               a project that is personal and commercial at once. I&apos;m also building AI
               tools I use in my own work and intend to package for others: an enterprise
               RAG assistant and an HR automation system.
@@ -82,7 +90,7 @@ export default function AboutPage() {
               The throughline across all of it is that I&apos;m not waiting for permission
               to build. Every job, every project, every conversation is feeding the same
               goal. I want to be someone who understands both the technical side and the
-              business side well enough to build and sell AI products â€” not just as an
+              business side well enough to build and sell AI products &mdash; not just as an
               engineer who gets handed requirements, but as someone who identifies the
               problem, builds the solution, and owns the outcome.
             </p>
@@ -91,8 +99,8 @@ export default function AboutPage() {
           {/* Contact nudge */}
           <div className="mt-16 pt-10 border-t border-border/40">
             <p className="text-sm text-foreground-muted mb-4">
-              If any of this resonates â€” a project, a collaboration, or just a
-              conversation â€” reach out.
+              If any of this resonates &mdash; a project, a collaboration, or just a
+              conversation &mdash; reach out.
             </p>
             <a
               href="mailto:hello.cliford@gmail.com"
@@ -106,4 +114,3 @@ export default function AboutPage() {
     </main>
   );
 }
-

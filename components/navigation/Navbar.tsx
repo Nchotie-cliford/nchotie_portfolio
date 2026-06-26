@@ -27,7 +27,7 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="fixed top-5 left-1/2 -translate-x-1/2 z-50"
+        className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-fit"
       >
         {/* Desktop pill */}
         <nav className="hidden md:flex items-center gap-1 px-2 py-2 rounded-full bg-white/95 backdrop-blur-md border border-border/60 shadow-sm">

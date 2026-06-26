@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Navbar from "@/components/navigation/Navbar";
 import PostCard from "@/components/blog/PostCard";
 import { getAllPosts } from "@/lib/posts";
@@ -7,7 +7,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "Articles and notes from Cliford Ndonwie Nchotie â€” AI engineering, building in Germany, and lessons from production work.",
+    "Articles and notes from Cliford Ndonwie Nchotie — AI engineering, building RAG systems in Germany, dual-study reflections, and lessons from production work.",
+  alternates: { canonical: "https://nchotie.xyz/writing" },
+  openGraph: {
+    title: "Writing — Cliford Ndonwie Nchotie",
+    description:
+      "Notes on building AI systems, working in Germany, and what I'm learning along the way.",
+    url: "https://nchotie.xyz/writing",
+    images: [{ url: "https://nchotie.xyz/images/profile.jpg", width: 800, height: 800 }],
+  },
 };
 
 export default function WritingPage() {
@@ -62,4 +70,3 @@ export default function WritingPage() {
     </main>
   );
 }
-
