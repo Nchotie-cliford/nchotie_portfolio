@@ -69,6 +69,32 @@ export const certificates = [
 
 export const experience = [
   {
+    company: "IU Internationale Hochschule / CANCOM SE",
+    role: "Dualer Student – B.Sc. Informatik",
+    period: "09/2026 – Present",
+    location: "Germany",
+    description: "Dual study program combining academic coursework in Computer Science with applied work experience at CANCOM SE.",
+    achievements: [
+      "Dual study program combining academic coursework in Computer Science with applied work experience at CANCOM SE",
+      "Placeholder — add specific team/focus area once CANCOM assignment is confirmed",
+    ],
+    tech: ["Computer Science", "Applied Engineering", "CANCOM SE"],
+  },
+  {
+    company: "Brauerei Gebr. Maisel",
+    role: "Werkstudent Digitalisierung – KI & Data Science",
+    period: "04/2026 – 08/2026",
+    location: "Bayreuth, Germany",
+    description: "Designing and building AI/data systems to enable internal knowledge search and analytics.",
+    achievements: [
+      "Designed and built a RAG system to make internal and distributed data sources searchable for AI applications",
+      "Developed the underlying data fabric connecting cloud and on-premise sources to support the RAG pipeline",
+      "Built automated data pipelines for ingestion, cleaning, and preparation of datasets feeding the RAG system and ML models",
+      "Documented architecture and supported monitoring and testing of the pipeline in production",
+    ],
+    tech: ["RAG", "Python", "Data Pipelines", "Vector Search", "LLMs", "Cloud", "On-premise Integration"],
+  },
+  {
     company: "Arvato Systems GmbH",
     role: "Werkstudent – IT Engineer (TenneT TSO)",
     period: "01/2024 – 12/2025",
@@ -106,6 +132,19 @@ export const experience = [
       "Documented common issues and created knowledge base articles",
     ],
     tech: ["Windows", "macOS", "Linux", "Hardware Troubleshooting", "User Support"],
+  },
+  {
+    company: "Fiverr",
+    role: "Freelance Developer",
+    period: "2017 – Present",
+    location: "Remote",
+    description: "Independent software development across 120+ client projects.",
+    achievements: [
+      "Delivered 120+ projects spanning web development, automation, AI integration, and mobile apps",
+      "Built long-term client relationships across Europe, North America, and Africa",
+      "Consistently top-rated delivery across full-stack, backend, and AI workstreams",
+    ],
+    tech: ["Web Development", "AI Integration", "Automation", "Full-stack", "Mobile"],
   },
   {
     company: "Africa Multiple Cluster of Excellence",

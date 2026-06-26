@@ -4,14 +4,12 @@ import FloatingNav from "@/components/navigation/FloatingNav";
 import EnhancedHero from "@/components/hero/EnhancedHero";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { projects } from "@/lib/projectData";
-import CertificatesSection from "@/components/certificates/CertificatesSection";
 
 // Lazy-load below-the-fold sections so they don't block initial paint
 const AboutMeSection = dynamic(() => import("@/components/about/AboutMeSection"));
 const CaseStudyCard = dynamic(() => import("@/components/projects/CaseStudyCard"));
 const TechStackShowcase = dynamic(() => import("@/components/tech-stack/TechStackShowcase"));
 const ExperienceTimeline = dynamic(() => import("@/components/experience/ExperienceTimeline"));
-const InteractiveTerminal = dynamic(() => import("@/components/ui/InteractiveTerminal"));
 
 export default function Home() {
   return (
@@ -56,14 +54,8 @@ export default function Home() {
       {/* Tech Stack */}
       <TechStackShowcase />
 
-      {/* Certificates */}
-      <CertificatesSection />
-
       {/* Experience */}
       <ExperienceTimeline />
-
-      {/* Interactive Terminal */}
-      <InteractiveTerminal />
 
       {/* Contact */}
       <section id="contact" className="py-24 relative">

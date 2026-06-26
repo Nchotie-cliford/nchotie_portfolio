@@ -8,7 +8,6 @@ import GradientText from "../ui/GradientText";
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
-  { name: "Certificates", href: "#certificates" },
   { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
@@ -127,12 +126,12 @@ export default function Navbar() {
                 </button>
               ))}
 
-              {/* Blog — separate page */}
+              {/* Writing — separate page */}
               <Link
                 href="/blog"
                 className="relative text-sm font-medium text-foreground-muted hover:text-foreground transition-colors duration-200"
               >
-                Blog
+                Writing
               </Link>
 
               {/* Status dot */}
@@ -207,13 +206,13 @@ export default function Navbar() {
                 </motion.button>
               ))}
 
-              {/* Blog link */}
+              {/* Writing link */}
               <Link
                 href="/blog"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-left px-4 py-3 rounded-lg transition-colors text-foreground-muted hover:text-foreground"
               >
-                Blog
+                Writing
               </Link>
 
               {/* Mobile status */}

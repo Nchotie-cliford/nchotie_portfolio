@@ -3,13 +3,10 @@
 import { motion } from "framer-motion";
 import GradientText from "../ui/GradientText";
 import DataTicker from "./DataTicker";
-import MiniTerminal from "./MiniTerminal";
 
 export default function EnhancedHero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Subtle radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.06)_0%,transparent_70%)]" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-32">
@@ -65,16 +62,11 @@ export default function EnhancedHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.65 }}
-            className="text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-foreground-muted max-w-2xl mx-auto leading-relaxed"
           >
-            Aspiring Lead Engineer specializing in{" "}
-            <span className="text-primary-light font-semibold">low-latency, high-throughput backend architecture</span>{" "}
-            and{" "}
-            <span className="text-accent-gold font-semibold">end-to-end AI pipelines</span>.
-            <br />
-            I build scalable, reliable systems that connect{" "}
-            <span className="text-primary-light font-semibold">mission-critical infrastructure</span>{" "}
-            with RAG/LLM automation.
+            Builder. From Cameroon, based in Germany. Currently shipping production RAG systems
+            at Maisel&apos;s brewery in Bayreuth. Freelancing since 2017.
+            Building toward my own AI company.
           </motion.p>
 
           {/* Stage 5: CTA Buttons */}
@@ -86,20 +78,19 @@ export default function EnhancedHero() {
           >
             <motion.a
               href="#projects"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)" }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-lg bg-gradient-to-r from-primary to-purple-600 shadow-lg overflow-hidden"
+              className="group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-lg bg-primary hover:bg-primary-dark transition-colors"
             >
-              <span className="relative z-10">View Case Studies</span>
+              See My Work
               <svg
-                className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1"
+                className="w-5 h-5 transition-transform group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-light to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.a>
 
             <motion.a
@@ -129,9 +120,6 @@ export default function EnhancedHero() {
               </svg>
             </motion.a>
           </motion.div>
-
-          {/* Stage 6: Mini Terminal (2.5-3s) */}
-          <MiniTerminal />
 
         </div>
       </div>

@@ -12,10 +12,9 @@ interface TickerItem {
 }
 
 const tickerData: TickerItem[] = [
-  { value: 3, label: "Projects Deployed", icon: "🚀", trend: "up" },
-  { value: 15, label: "Technologies Mastered", icon: "⚡", trend: "up" },
-  { value: 99.9, label: "Uptime %", icon: "✓", trend: "up" },
-  { value: 2, label: "Years Experience", icon: "📅" },
+  { value: 120, label: "Freelance Projects", icon: "→", trend: "up" },
+  { value: 9, label: "Years Building", icon: "→", trend: "up" },
+  { value: 4, label: "Products Shipped", icon: "→", trend: "up" },
 ];
 
 export default function DataTicker() {
@@ -24,7 +23,7 @@ export default function DataTicker() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 1.2 }}
-      className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+      className="grid grid-cols-3 gap-4 max-w-2xl mx-auto"
     >
       {tickerData.map((item, index) => (
         <motion.div

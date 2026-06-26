@@ -13,42 +13,105 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cliford Ndonwie Nchotie - Aspiring Lead Engineer",
-  description: "Aspiring Lead Engineer specializing in low-latency, high-throughput backend architecture and end-to-end AI pipelines. Building scalable systems that connect mission-critical infrastructure with RAG/LLM automation.",
+  title: {
+    default: "Cliford Ndonwie Nchotie — AI Developer & Builder",
+    template: "%s | Cliford Ndonwie Nchotie",
+  },
+  description:
+    "Cliford Ndonwie Nchotie is an AI developer and builder based in Bayreuth, Germany. Building RAG systems, AI products, and tools for the German market. Freelancing since 2017. Building toward his own AI company.",
   keywords: [
-    "Full-Stack Developer",
-    "AI/ML",
-    "FastAPI",
-    "Spring Boot",
-    "RAG",
-    "Bayreuth",
-    "Java",
-    "TypeScript",
-    "Python",
-    "OpenAI",
-    "Gemini API",
-    "PostgreSQL",
-    "Docker",
+    "Cliford Ndonwie Nchotie",
+    "Cliford Nchotie",
+    "Nchotie Cliford",
+    "Cliford Ndonwie",
+    "AI Developer Germany",
+    "RAG System Developer",
+    "Full-Stack Developer Bayreuth",
+    "AI Engineer Germany",
+    "Cameroon developer Germany",
+    "KI Entwickler Bayern",
+    "Freelance AI Developer",
+    "Next.js TypeScript Python",
+    "LangChain RAG LLM",
+    "Mittelstand AI",
   ],
   authors: [{ name: "Cliford Ndonwie Nchotie", url: "https://nchotie.xyz" }],
   creator: "Cliford Ndonwie Nchotie",
   publisher: "Cliford Ndonwie Nchotie",
+  metadataBase: new URL("https://nchotie.xyz"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
-    locale: "de_DE",
+    locale: "en_US",
     url: "https://nchotie.xyz",
-    title: "Cliford Ndonwie Nchotie - Aspiring Lead Engineer",
-    description: "Building scalable, reliable systems that connect mission-critical infrastructure with RAG/LLM automation",
-    siteName: "Cliford Ndonwie Nchotie Portfolio",
+    title: "Cliford Ndonwie Nchotie — AI Developer & Builder",
+    description:
+      "AI developer and builder based in Germany. Building RAG systems, AI products, and tools for the German market. Freelancing since 2017.",
+    siteName: "Cliford Ndonwie Nchotie",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cliford Ndonwie Nchotie - Aspiring Lead Engineer",
-    description: "Backend Architecture • AI/ML Pipelines • RAG/LLM • Bayreuth, Germany",
+    title: "Cliford Ndonwie Nchotie — AI Developer & Builder",
+    description:
+      "AI developer and builder based in Germany. RAG systems · AI products · Freelancing since 2017.",
+    creator: "@clifordnchotie",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Cliford Ndonwie Nchotie",
+  alternateName: ["Cliford Nchotie", "Nchotie Cliford"],
+  url: "https://nchotie.xyz",
+  jobTitle: "AI Developer & Builder",
+  description:
+    "AI developer and builder based in Bayreuth, Germany. Building RAG systems and AI products for the German market. Freelancing since 2017. Building toward starting his own AI company.",
+  sameAs: [
+    "https://github.com/Nchotie-cliford",
+    "https://linkedin.com/in/cliford-ndonwie-nchoti",
+  ],
+  knowsAbout: [
+    "Artificial Intelligence",
+    "Retrieval-Augmented Generation",
+    "Large Language Models",
+    "Full-stack Development",
+    "Data Pipelines",
+    "Machine Learning",
+    "Python",
+    "TypeScript",
+    "Next.js",
+  ],
+  worksFor: {
+    "@type": "Organization",
+    name: "Brauerei Gebr. Maisel",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bayreuth",
+    addressRegion: "Bavaria",
+    addressCountry: "DE",
+  },
+  nationality: {
+    "@type": "Country",
+    name: "Cameroon",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Universität Bayreuth",
   },
 };
 
@@ -60,17 +123,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
-        <link rel="canonical" href="https://nchotie.xyz" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className="font-sans">
-        {/* Site-wide fixed radial gradient — subtle blue from top-center */}
-        <div
-          className="fixed inset-0 pointer-events-none z-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 90% 55% at 50% -5%, rgba(59,130,246,0.07) 0%, transparent 55%)",
-          }}
-        />
         {children}
       </body>
     </html>

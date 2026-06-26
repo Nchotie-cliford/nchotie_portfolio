@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import SectionHeader from "../ui/SectionHeader";
 import ProfileCard from "./ProfileCard";
-import ValuesPills from "./ValuesPills";
-import GradientText from "../ui/GradientText";
 
 export default function AboutMeSection() {
   return (
@@ -13,57 +11,45 @@ export default function AboutMeSection() {
         <SectionHeader
           title="About"
           accent="Me"
-          subtitle="Driven by continuous improvement and a passion for solving complex problems"
+          subtitle=""
         />
 
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-12 items-start">
-            {/* Left: Profile Card (40%) */}
+            {/* Left: Profile Card */}
             <div className="lg:col-span-2">
               <ProfileCard />
             </div>
 
-            {/* Right: Content (60%) */}
-            <div className="lg:col-span-3 space-y-8">
-              {/* Biography */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="space-y-4"
-              >
-                <h3 className="text-2xl font-bold text-foreground mb-4">
-                  My <GradientText gradient="primary">Philosophy</GradientText>
-                </h3>
-
-                <div className="glass-card p-6 rounded-xl text-foreground-muted leading-relaxed">
-                  <p>
-                    I am never satisfied with my goals, and I am always fighting to improve. I never stop learning
-                    and love reaching new heights. I am an optimistic and faithful believer that for every problem,
-                    there is always a solution. I live by the principle that{" "}
-                    <span className="text-primary-light font-semibold">setbacks are merely setups for a stronger comeback</span>.
-                    My journey has taught me that with{" "}
-                    <span className="text-accent-gold font-semibold">hard work and a clear vision</span>,
-                    any goal is within reach.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Core Values */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                <h4 className="text-lg font-semibold text-foreground mb-4">
-                  Core <GradientText gradient="success">Values</GradientText>
-                </h4>
-                <ValuesPills />
-              </motion.div>
-
-            </div>
+            {/* Right: Bio */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="lg:col-span-3 space-y-5 text-foreground-muted leading-relaxed"
+            >
+              <p>
+                I&apos;m originally from Cameroon, based in Bayreuth, Germany. Right now I&apos;m
+                building a RAG system and the data infrastructure behind it at Maisel&apos;s brewery
+                — real production AI work. In September I&apos;m starting a dual study in Informatik
+                at IU with CANCOM, which gives me both the degree and direct experience inside
+                German enterprise IT — exactly the world I want to eventually sell into.
+              </p>
+              <p>
+                The job is only part of it. I&apos;ve been freelancing on Fiverr since 2017 — over
+                120 projects — and alongside that I&apos;m building my own products: iFemi, a
+                community platform for the African diaspora in Europe, and a few AI tools like an
+                enterprise RAG assistant and an HR automation system. I&apos;m also involved in
+                diaspora-led business projects back in Cameroon with my family.
+              </p>
+              <p>
+                The goal isn&apos;t just to be a good developer. It&apos;s to understand both the
+                technical and business sides well enough to build AI products for the German
+                Mittelstand and eventually start my own company. Every job, every project is
+                feeding that.
+              </p>
+            </motion.div>
           </div>
         </div>
       </div>
